@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AksharNixGlobal | Expert IT Consulting & Solutions</title>
+    <title>AksharNix Global | Expert IT Consulting & Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,11 +22,32 @@
         input[type="file"]::file-selector-button {
             @apply bg-indigo-100 text-indigo-600 font-semibold px-4 py-2 rounded-lg border-0 cursor-pointer hover:bg-indigo-200 transition-colors;
         }
+        /* New custom CSS for animations */
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes bounceSlow {
+            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        }
+        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 1s ease-out 0.5s forwards; }
+        .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
+        .animate-bounce-slow { animation: bounceSlow 2s infinite 1s; }
+        section.opacity-0 { opacity: 0; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
@@ -43,7 +64,6 @@
                 <i data-feather="menu" class="text-gray-800"></i>
             </button>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#services" class="block py-2 text-gray-600 hover:text-indigo-600">Services</a>
             <a href="#solutions" class="block py-2 text-gray-600 hover:text-indigo-600">Solutions</a>
@@ -53,7 +73,6 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero-bg text-white min-h-screen flex items-center justify-center pt-20">
             <div class="text-center container mx-auto px-6">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-down">
@@ -68,7 +87,6 @@
             </div>
         </section>
 
-        <!-- IT Services Section -->
         <section id="services" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -76,7 +94,6 @@
                     <p class="text-lg text-gray-600 mt-2">Tailored technology services to meet your business needs.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Service Card 1 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                             <i data-feather="cloud" class="w-8 h-8"></i>
@@ -84,7 +101,6 @@
                         <h3 class="text-2xl font-bold mb-3">Cloud Solutions</h3>
                         <p class="text-gray-600">Scalable and secure cloud infrastructure to power your applications and data with AWS, Azure, and Google Cloud.</p>
                     </div>
-                    <!-- Service Card 2 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                             <i data-feather="shield" class="w-8 h-8"></i>
@@ -92,7 +108,6 @@
                         <h3 class="text-2xl font-bold mb-3">Cybersecurity</h3>
                         <p class="text-gray-600">Protect your digital assets with our comprehensive security audits, threat detection, and incident response.</p>
                     </div>
-                    <!-- Service Card 3 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                             <i data-feather="server" class="w-8 h-8"></i>
@@ -100,7 +115,6 @@
                         <h3 class="text-2xl font-bold mb-3">Managed IT Services</h3>
                         <p class="text-gray-600">Proactive IT management, 24/7 support, and strategic guidance to ensure your systems run smoothly.</p>
                     </div>
-                    <!-- Service Card 4 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                             <i data-feather="bar-chart-2" class="w-8 h-8"></i>
@@ -108,11 +122,17 @@
                         <h3 class="text-2xl font-bold mb-3">Data & Analytics</h3>
                         <p class="text-gray-600">Turn your data into actionable insights with our business intelligence and data analytics solutions.</p>
                     </div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                            <i data-feather="users" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Job Placement & C2C</h3>
+                        <p class="text-gray-600">Connecting top-tier IT talent with leading companies for contract and full-time roles, including Corp-to-Corp placements.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Solutions Section -->
         <section id="solutions" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
                 <div class="lg:flex lg:items-center lg:space-x-12">
@@ -141,7 +161,6 @@
             </div>
         </section>
 
-        <!-- Reviews Section -->
         <section id="reviews" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
@@ -149,7 +168,6 @@
                     <p class="text-lg text-gray-600 mt-2">We're proud to partner with amazing companies.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Review 1 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
                         <p class="text-gray-600 italic mb-6">"AksharNixGlobal transformed our IT infrastructure. Their cloud solution was seamless, and the support has been outstanding. We've seen a 40% increase in operational efficiency."</p>
                         <div class="flex items-center">
@@ -160,7 +178,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Review 2 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
                         <p class="text-gray-600 italic mb-6">"The cybersecurity audit they performed was incredibly thorough. We now feel confident that our data is secure. Their team is professional, knowledgeable, and a pleasure to work with."</p>
                         <div class="flex items-center">
@@ -171,7 +188,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Review 3 -->
                     <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
                         <p class="text-gray-600 italic mb-6">"Their managed IT services are a game-changer. We can finally focus on our core business without worrying about IT issues. Proactive, responsive, and reliable."</p>
                         <div class="flex items-center">
@@ -186,7 +202,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-20 bg-gray-900 text-white">
             <div class="container mx-auto px-6">
                 <div class="lg:flex lg:items-center lg:justify-between">
@@ -237,7 +252,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center space-x-6 mb-4">
@@ -328,11 +342,11 @@
                 mode: 'no-cors',
                 body: JSON.stringify(payload),
                 headers: {
-                  // In no-cors mode, we can't use 'application/json'.
-                  // The browser will likely send it as 'text/plain'.
-                  // The Apps Script will receive the stringified JSON in e.postData.contents,
-                  // and JSON.parse() will still work correctly.
-                  'Content-Type': 'text/plain;charset=utf-8',
+                    // In no-cors mode, we can't use 'application/json'.
+                    // The browser will likely send it as 'text/plain'.
+                    // The Apps Script will receive the stringified JSON in e.postData.contents,
+                    // and JSON.parse() will still work correctly.
+                    'Content-Type': 'text/plain;charset=utf-8',
                 }
             })
             .then(() => {
