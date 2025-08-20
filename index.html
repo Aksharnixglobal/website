@@ -18,6 +18,10 @@
             background-size: cover;
             background-position: center;
         }
+        /* Style for the file input */
+        input[type="file"]::file-selector-button {
+            @apply bg-indigo-100 text-indigo-600 font-semibold px-4 py-2 rounded-lg border-0 cursor-pointer hover:bg-indigo-200 transition-colors;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -206,7 +210,7 @@
                     </div>
                     <div class="lg:w-1/2 mt-10 lg:mt-0">
                         <div class="bg-white p-8 rounded-xl shadow-2xl">
-                            <form action="mailto:aksharnixglobal@gmail.com" method="post" enctype="text/plain">
+                            <form id="contact-form">
                                 <div class="mb-5">
                                     <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
                                     <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
@@ -217,9 +221,14 @@
                                 </div>
                                 <div class="mb-5">
                                     <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required></textarea>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg">Send Message</button>
+                                <div class="mb-5">
+                                    <label for="file" class="block text-gray-700 font-semibold mb-2">Attach File (Optional)</label>
+                                    <input type="file" id="file" name="file" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                                </div>
+                                <div id="form-status" class="text-center mb-4 font-medium"></div>
+                                <button type="submit" id="submit-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg disabled:bg-indigo-400">Send Message</button>
                             </form>
                         </div>
                     </div>
@@ -241,6 +250,11 @@
     </footer>
 
     <script>
+        // --- IMPORTANT ---
+        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_-4RrEfZECIxIvgwmf5V5_EHT8SUEMonAnVL74U1H_nzl_FxqJwihn8Vz1e-53qto/exec";
+        // -----------------
+
         // Feather Icons
         feather.replace();
 
@@ -258,6 +272,95 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // Contact Form Submission Logic
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const formStatus = document.getElementById('form-status');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.disabled = true;
+            formStatus.textContent = "Sending, please wait...";
+            formStatus.className = "text-blue-500";
+
+            const file = form.file.files[0];
+            
+            if (file) {
+                // If there's a file, read it as Base64
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    const fileData = reader.result.split(',')[1]; // Get only the Base64 part
+                    const payload = {
+                        name: form.name.value,
+                        email: form.email.value,
+                        message: form.message.value,
+                        fileName: file.name,
+                        mimeType: file.type,
+                        fileData: fileData
+                    };
+                    sendData(payload);
+                };
+                reader.onerror = (error) => {
+                    handleError(error);
+                };
+            } else {
+                // If no file, send data directly
+                const payload = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    message: form.message.value,
+                    fileName: "", // Send empty values for file fields
+                    mimeType: "",
+                    fileData: ""
+                };
+                sendData(payload);
+            }
+        });
+
+        function sendData(payload) {
+            // Using 'no-cors' mode is a common workaround for Google Apps Script fetch issues.
+            // It prevents the browser from throwing a CORS error due to Google's redirect behavior.
+            // The downside is that we cannot read the response from the server.
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(payload),
+                headers: {
+                  // In no-cors mode, we can't use 'application/json'.
+                  // The browser will likely send it as 'text/plain'.
+                  // The Apps Script will receive the stringified JSON in e.postData.contents,
+                  // and JSON.parse() will still work correctly.
+                  'Content-Type': 'text/plain;charset=utf-8',
+                }
+            })
+            .then(() => {
+                // Since we can't read the response, we assume the request was dispatched successfully.
+                handleSuccess();
+            })
+            .catch(error => {
+                // This will catch genuine network errors, like if the user is offline.
+                handleError(error);
+            });
+        }
+
+        function handleSuccess() {
+            formStatus.textContent = "Message sent successfully!";
+            formStatus.className = "text-green-500";
+            form.reset();
+            setTimeout(() => {
+                formStatus.textContent = "";
+            }, 5000);
+            submitButton.disabled = false;
+        }
+
+        function handleError(error) {
+            console.error('Submission Error:', error);
+            formStatus.textContent = "An error occurred. Please try again.";
+            formStatus.className = "text-red-500";
+            submitButton.disabled = false;
+        }
 
         // Add simple animations on scroll
         const observer = new IntersectionObserver((entries) => {
