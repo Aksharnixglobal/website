@@ -54,30 +54,17 @@
   <!-- Header with custom AksharNix Global logo -->
   <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- ✅ Custom logo (icon + wordmark) -->
+      <!-- ✅ Custom logo image -->
       <a href="#top" class="flex items-center gap-3">
-        <!-- Inline SVG Icon -->
-        <svg class="h-10 w-10 flex-shrink-0" viewBox="0 0 128 128" role="img" aria-label="AksharNix emblem">
-          <defs>
-            <linearGradient id="Agrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#22b2e6"/>
-              <stop offset="1" stop-color="#0f6ac9"/>
-            </linearGradient>
-          </defs>
-          <circle cx="64" cy="64" r="56" fill="none" stroke="#0e3977" stroke-width="10"/>
-          <path d="M64 20 L100 98 H28 Z" fill="url(#Agrad)"/>
-          <path d="M64 44 L82 82 H46 Z" fill="#ffffff"/>
-          <path d="M48 78 L60 54 L52 38 L32 78 Z" fill="#ffffff"/>
-        </svg>
-
-        <!-- Wordmark -->
-        <span class="flex flex-col leading-tight">
-          <span class="font-extrabold text-2xl">
-            <span class="text-[#1f56a6]">Akshar</span>
-            <span class="bg-gradient-to-r from-[#1f56a6] to-[#22b2e6] bg-clip-text text-transparent">Nix</span>
-          </span>
-          <span class="text-sm font-extrabold tracking-[.25em] text-[#0e3977]">GLOBAL</span>
-        </span>
+        <!-- Replace YOUR_LOGO_URL_HERE with your uploaded logo URL (PNG/SVG/WebP) -->
+        <img
+          src="YOUR_LOGO_URL_HERE"
+          alt="AksharNix Global Logo"
+          class="h-12 w-auto"
+          loading="eager"
+          decoding="async"
+        />
+        <span class="sr-only">AksharNix Global</span>
       </a>
 
       <nav class="hidden md:flex space-x-8 text-lg">
