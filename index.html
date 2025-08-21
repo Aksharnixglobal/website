@@ -1,422 +1,394 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AksharNix Global | Expert IT Consulting & Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(20, 30, 48, 0.8), rgba(36, 59, 85, 0.8)), url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-size: cover;
-            background-position: center;
-        }
-        /* Style for the file input */
-        input[type="file"]::file-selector-button {
-            @apply bg-indigo-100 text-indigo-600 font-semibold px-4 py-2 rounded-lg border-0 cursor-pointer hover:bg-indigo-200 transition-colors;
-        }
-        /* New custom CSS for animations */
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        @keyframes bounceSlow {
-            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-        }
-        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
-        .animate-fade-in-up { animation: fadeInUp 1s ease-out 0.5s forwards; }
-        .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-        .animate-bounce-slow { animation: bounceSlow 2s infinite 1s; }
-        section.opacity-0 { opacity: 0; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AksharNix Global | Expert IT Consulting & Solutions</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background-image:
+        linear-gradient(rgba(20,30,48,.8), rgba(36,59,85,.8)),
+        url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+      background-size: cover; background-position: center;
+    }
+
+    /* Replace @apply with plain CSS so it works via CDN */
+    input[type="file"]::file-selector-button{
+      background:#eef2ff; /* indigo-100 */
+      color:#4f46e5;      /* indigo-600 */
+      font-weight:600;
+      padding:.5rem 1rem;
+      border:0;
+      border-radius:.5rem;
+      cursor:pointer;
+      transition:background-color .2s ease;
+    }
+    input[type="file"]::file-selector-button:hover{ background:#e0e7ff; } /* indigo-200 */
+
+    /* Animations */
+    @keyframes fadeInDown { 0%{opacity:0; transform:translateY(-20px)} 100%{opacity:1; transform:translateY(0)} }
+    @keyframes fadeInUp { 0%{opacity:0; transform:translateY(20px)} 100%{opacity:1; transform:translateY(0)} }
+    @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
+    @keyframes bounceSlow {
+      0%,100%{ transform:translateY(-5%); animation-timing-function:cubic-bezier(.8,0,1,1) }
+      50%{ transform:translateY(0); animation-timing-function:cubic-bezier(0,0,.2,1) }
+    }
+    .animate-fade-in-down{ animation:fadeInDown 1s ease-out forwards }
+    .animate-fade-in-up{ animation:fadeInUp 1s ease-out .5s forwards }
+    .animate-fade-in{ animation:fadeIn 1.5s ease-out forwards }
+    .animate-bounce-slow{ animation:bounceSlow 2s infinite 1s }
+    section.opacity-0{ opacity:0 }
+  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
-    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center space-x-2">
-                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.786-2.874 9.312a1 1 0 01-1.788-.85C8.038 16.26 9 13.714 9 11c0-2.714-.962-5.26-2.662-8.462a1 1 0 011.788-.85C10.991 4.213 12 7.483 12 11zm0 0h9"></path></svg>
-                <span class="text-2xl font-bold text-gray-800">AksharNixGlobal</span>
-            </a>
-            <nav class="hidden md:flex space-x-8 text-lg">
-                <a href="#services" class="text-gray-600 hover:text-indigo-600 transition duration-300">Services</a>
-                <a href="#solutions" class="text-gray-600 hover:text-indigo-600 transition duration-300">Solutions</a>
-                <a href="#reviews" class="text-gray-600 hover:text-indigo-600 transition duration-300">Reviews</a>
-                <a href="#contact" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg">Contact Us</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-feather="menu" class="text-gray-800"></i>
-            </button>
+  <!-- Header with custom AksharNix Global logo -->
+  <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- ✅ Custom logo (icon + wordmark) -->
+      <a href="#top" class="flex items-center gap-3">
+        <!-- Inline SVG Icon -->
+        <svg class="h-10 w-10 flex-shrink-0" viewBox="0 0 128 128" role="img" aria-label="AksharNix emblem">
+          <defs>
+            <linearGradient id="Agrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#22b2e6"/>
+              <stop offset="1" stop-color="#0f6ac9"/>
+            </linearGradient>
+          </defs>
+          <circle cx="64" cy="64" r="56" fill="none" stroke="#0e3977" stroke-width="10"/>
+          <path d="M64 20 L100 98 H28 Z" fill="url(#Agrad)"/>
+          <path d="M64 44 L82 82 H46 Z" fill="#ffffff"/>
+          <path d="M48 78 L60 54 L52 38 L32 78 Z" fill="#ffffff"/>
+        </svg>
+
+        <!-- Wordmark -->
+        <span class="flex flex-col leading-tight">
+          <span class="font-extrabold text-2xl">
+            <span class="text-[#1f56a6]">Akshar</span>
+            <span class="bg-gradient-to-r from-[#1f56a6] to-[#22b2e6] bg-clip-text text-transparent">Nix</span>
+          </span>
+          <span class="text-sm font-extrabold tracking-[.25em] text-[#0e3977]">GLOBAL</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex space-x-8 text-lg">
+        <a href="#services" class="text-gray-600 hover:text-indigo-600 transition duration-300">Services</a>
+        <a href="#solutions" class="text-gray-600 hover:text-indigo-600 transition duration-300">Solutions</a>
+        <a href="#reviews" class="text-gray-600 hover:text-indigo-600 transition duration-300">Reviews</a>
+        <a href="#contact" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg">Contact Us</a>
+      </nav>
+
+      <button id="mobile-menu-button" class="md:hidden" aria-label="Open menu">
+        <i data-feather="menu" class="text-gray-800"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <a href="#services" class="block py-2 text-gray-600 hover:text-indigo-600">Services</a>
+      <a href="#solutions" class="block py-2 text-gray-600 hover:text-indigo-600">Solutions</a>
+      <a href="#reviews" class="block py-2 text-gray-600 hover:text-indigo-600">Reviews</a>
+      <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 text-center">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-bg text-white min-h-screen flex items-center justify-center pt-20">
+      <div class="text-center container mx-auto px-6">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-down">
+          Driving Your Digital Transformation
+        </h1>
+        <p class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
+          AksharNix Global delivers innovative IT consulting and robust solutions to accelerate your business growth and secure your digital assets.
+        </p>
+        <a href="#contact" class="bg-white text-indigo-600 font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-2xl inline-block animate-bounce-slow">
+          Get a Free Consultation
+        </a>
+      </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800">Our Core IT Services</h2>
+          <p class="text-lg text-gray-600 mt-2">Tailored technology services to meet your business needs.</p>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#services" class="block py-2 text-gray-600 hover:text-indigo-600">Services</a>
-            <a href="#solutions" class="block py-2 text-gray-600 hover:text-indigo-600">Solutions</a>
-            <a href="#reviews" class="block py-2 text-gray-600 hover:text-indigo-600">Reviews</a>
-            <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 text-center">Contact Us</a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+              <i data-feather="cloud" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Cloud Solutions</h3>
+            <p class="text-gray-600">Scalable and secure cloud infrastructure to power your applications and data with AWS, Azure, and Google Cloud.</p>
+          </div>
+
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+              <i data-feather="shield" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Cybersecurity</h3>
+            <p class="text-gray-600">Protect your digital assets with our comprehensive security audits, threat detection, and incident response.</p>
+          </div>
+
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+              <i data-feather="server" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Managed IT Services</h3>
+            <p class="text-gray-600">Proactive IT management, 24/7 support, and strategic guidance to ensure your systems run smoothly.</p>
+          </div>
+
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+              <i data-feather="bar-chart-2" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Data & Analytics</h3>
+            <p class="text-gray-600">Turn your data into actionable insights with our business intelligence and data analytics solutions.</p>
+          </div>
+
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+              <i data-feather="users" class="w-8 h-8"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Job Placement & C2C</h3>
+            <p class="text-gray-600">Connecting top-tier IT talent with leading companies for contract and full-time roles, including Corp-to-Corp placements.</p>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section class="hero-bg text-white min-h-screen flex items-center justify-center pt-20">
-            <div class="text-center container mx-auto px-6">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-down">
-                    Driving Your Digital Transformation
-                </h1>
-                <p class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
-                    AksharNixGlobal delivers innovative IT consulting and robust solutions to accelerate your business growth and secure your digital assets.
-                </p>
-                <a href="#contact" class="bg-white text-indigo-600 font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-2xl inline-block animate-bounce-slow">
-                    Get a Free Consultation
-                </a>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-800">Our Core IT Services</h2>
-                    <p class="text-lg text-gray-600 mt-2">Tailored technology services to meet your business needs.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                            <i data-feather="cloud" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Cloud Solutions</h3>
-                        <p class="text-gray-600">Scalable and secure cloud infrastructure to power your applications and data with AWS, Azure, and Google Cloud.</p>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                            <i data-feather="shield" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Cybersecurity</h3>
-                        <p class="text-gray-600">Protect your digital assets with our comprehensive security audits, threat detection, and incident response.</p>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                            <i data-feather="server" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Managed IT Services</h3>
-                        <p class="text-gray-600">Proactive IT management, 24/7 support, and strategic guidance to ensure your systems run smoothly.</p>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                            <i data-feather="bar-chart-2" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Data & Analytics</h3>
-                        <p class="text-gray-600">Turn your data into actionable insights with our business intelligence and data analytics solutions.</p>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                            <i data-feather="users" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Job Placement & C2C</h3>
-                        <p class="text-gray-600">Connecting top-tier IT talent with leading companies for contract and full-time roles, including Corp-to-Corp placements.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solutions" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-6">
-                <div class="lg:flex lg:items-center lg:space-x-12">
-                    <div class="lg:w-1/2">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Team collaborating on a solution" class="rounded-xl shadow-2xl w-full h-auto object-cover">
-                    </div>
-                    <div class="lg:w-1/2 mt-8 lg:mt-0">
-                        <h2 class="text-4xl font-bold text-gray-800 mb-4">Innovative Solutions for Modern Challenges</h2>
-                        <p class="text-lg text-gray-600 mb-6">We don't just provide services; we build strategic solutions. Our approach combines deep industry knowledge with cutting-edge technology to address your most complex business challenges, ensuring you stay ahead of the curve.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">Custom Software Development:</strong> Tailored applications that align perfectly with your business processes.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">IT Strategy & Consulting:</strong> A roadmap for technology adoption that drives efficiency and innovation.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">Digital Workspace Modernization:</strong> Empower your team with collaborative and secure digital tools.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="reviews" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-800">What Our Clients Say</h2>
-                    <p class="text-lg text-gray-600 mt-2">We're proud to partner with amazing companies.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"AksharNixGlobal transformed our IT infrastructure. Their cloud solution was seamless, and the support has been outstanding. We've seen a 40% increase in operational efficiency."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 1" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Sarah Johnson</p>
-                                <p class="text-sm text-gray-500">CEO, Innovate Corp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"The cybersecurity audit they performed was incredibly thorough. We now feel confident that our data is secure. Their team is professional, knowledgeable, and a pleasure to work with."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 2" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Michael Chen</p>
-                                <p class="text-sm text-gray-500">CTO, Data Systems Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"Their managed IT services are a game-changer. We can finally focus on our core business without worrying about IT issues. Proactive, responsive, and reliable."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 3" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Emily Rodriguez</p>
-                                <p class="text-sm text-gray-500">Operations Director, MarketLeap</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-gray-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="lg:flex lg:items-center lg:justify-between">
-                    <div class="lg:w-1/2">
-                        <h2 class="text-4xl font-bold mb-4">Let's Build Your Future, Together.</h2>
-                        <p class="text-lg text-gray-300 mb-8">Ready to elevate your business with cutting-edge IT solutions? Fill out the form, and one of our expert consultants will get in touch with you shortly.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i data-feather="mail" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <a href="mailto:aksharnixglobal@gmail.com" class="hover:text-indigo-400">aksharnixglobal@gmail.com</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i data-feather="phone" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <span>(773) 750- 6813</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i data-feather="map-pin" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <span>123 Tech Avenue, Silicon Valley, CA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2 mt-10 lg:mt-0">
-                        <div class="bg-white p-8 rounded-xl shadow-2xl">
-                            <form id="contact-form">
-                                <div class="mb-5">
-                                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required></textarea>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="file" class="block text-gray-700 font-semibold mb-2">Attach File (Optional)</label>
-                                    <input type="file" id="file" name="file" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                                </div>
-                                <div id="form-status" class="text-center mb-4 font-medium"></div>
-                                <button type="submit" id="submit-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg disabled:bg-indigo-400">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-indigo-400"><i data-feather="twitter"></i></a>
-                <a href="#" class="hover:text-indigo-400"><i data-feather="linkedin"></i></a>
-                <a href="#" class="hover:text-indigo-400"><i data-feather="github"></i></a>
-            </div>
-            <p>&copy; 2024 AksharNixGlobal.com. All Rights Reserved.</p>
+    <section id="solutions" class="py-20 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="lg:flex lg:items-center lg:space-x-12">
+          <div class="lg:w-1/2">
+            <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Team collaborating on a solution" class="rounded-xl shadow-2xl w-full h-auto object-cover">
+          </div>
+          <div class="lg:w-1/2 mt-8 lg:mt-0">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Innovative Solutions for Modern Challenges</h2>
+            <p class="text-lg text-gray-600 mb-6">We don't just provide services; we build strategic solutions. Our approach combines deep industry knowledge with cutting-edge technology to address your most complex business challenges, ensuring you stay ahead of the curve.</p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
+                <span><strong class="font-semibold">Custom Software Development:</strong> Tailored applications that align perfectly with your business processes.</span>
+              </li>
+              <li class="flex items-start">
+                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
+                <span><strong class="font-semibold">IT Strategy & Consulting:</strong> A roadmap for technology adoption that drives efficiency and innovation.</span>
+              </li>
+              <li class="flex items-start">
+                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
+                <span><strong class="font-semibold">Digital Workspace Modernization:</strong> Empower your team with collaborative and secure digital tools.</span>
+              </li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // --- IMPORTANT ---
-        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzosCo5sAv7t7DNN_lyca55bHzOfWoeoinY72Z_5E4DPBP7g9WDp0H5n4uODm7fI3wz/exec";
-        // -----------------
+    <section id="reviews" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800">What Our Clients Say</h2>
+          <p class="text-lg text-gray-600 mt-2">We're proud to partner with amazing companies.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+            <p class="text-gray-600 italic mb-6">"AksharNix Global transformed our IT infrastructure. Their cloud solution was seamless, and the support has been outstanding. We've seen a 40% increase in operational efficiency."</p>
+            <div class="flex items-center">
+              <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 1" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <p class="font-bold">Sarah Johnson</p>
+                <p class="text-sm text-gray-500">CEO, Innovate Corp</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+            <p class="text-gray-600 italic mb-6">"The cybersecurity audit they performed was incredibly thorough. We now feel confident that our data is secure. Their team is professional, knowledgeable, and a pleasure to work with."</p>
+            <div class="flex items-center">
+              <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 2" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <p class="font-bold">Michael Chen</p>
+                <p class="text-sm text-gray-500">CTO, Data Systems Inc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+            <p class="text-gray-600 italic mb-6">"Their managed IT services are a game-changer. We can finally focus on our core business without worrying about IT issues. Proactive, responsive, and reliable."</p>
+            <div class="flex items-center">
+              <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 3" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <p class="font-bold">Emily Rodriguez</p>
+                <p class="text-sm text-gray-500">Operations Director, MarketLeap</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Feather Icons
-        feather.replace();
+    <section id="contact" class="py-20 bg-gray-900 text-white">
+      <div class="container mx-auto px-6">
+        <div class="lg:flex lg:items-center lg:justify-between">
+          <div class="lg:w-1/2">
+            <h2 class="text-4xl font-bold mb-4">Let's Build Your Future, Together.</h2>
+            <p class="text-lg text-gray-300 mb-8">Ready to elevate your business with cutting-edge IT solutions? Fill out the form, and one of our expert consultants will get in touch with you shortly.</p>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i data-feather="mail" class="w-6 h-6 mr-3 text-indigo-400"></i>
+                <a href="mailto:aksharnixglobal@gmail.com" class="hover:text-indigo-400">aksharnixglobal@gmail.com</a>
+              </div>
+              <div class="flex items-center">
+                <i data-feather="phone" class="w-6 h-6 mr-3 text-indigo-400"></i>
+                <span>(773) 750- 6813</span>
+              </div>
+              <div class="flex items-center">
+                <i data-feather="map-pin" class="w-6 h-6 mr-3 text-indigo-400"></i>
+                <span>123 Tech Avenue, Silicon Valley, CA</span>
+              </div>
+            </div>
+          </div>
 
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+          <div class="lg:w-1/2 mt-10 lg:mt-0">
+            <div class="bg-white p-8 rounded-xl shadow-2xl">
+              <form id="contact-form">
+                <div class="mb-5">
+                  <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                  <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
+                </div>
+                <div class="mb-5">
+                  <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
+                </div>
+                <div class="mb-5">
+                  <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
+                  <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required></textarea>
+                </div>
+                <div class="mb-5">
+                  <label for="file" class="block text-gray-700 font-semibold mb-2">Attach File (Optional)</label>
+                  <input type="file" id="file" name="file" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                </div>
+                <div id="form-status" class="text-center mb-4 font-medium"></div>
+                <button type="submit" id="submit-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg disabled:bg-indigo-400">Send Message</button>
+              </form>
+            </div>
+          </div>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        </div>
+      </div>
+    </section>
+  </main>
 
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex justify-center space-x-6 mb-4">
+        <a href="#" class="hover:text-indigo-400"><i data-feather="twitter"></i></a>
+        <a href="#" class="hover:text-indigo-400"><i data-feather="linkedin"></i></a>
+        <a href="#" class="hover:text-indigo-400"><i data-feather="github"></i></a>
+      </div>
+      <p>&copy; 2024 AksharNixGlobal.com. All Rights Reserved.</p>
+    </div>
+  </footer>
 
-        // Contact Form Submission Logic
-        const form = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const formStatus = document.getElementById('form-status');
+  <script>
+    // --- IMPORTANT ---
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzosCo5sAv7t7DNN_lyca55bHzOfWoeoinY72Z_5E4DPBP7g9WDp0H5n4uODm7fI3wz/exec";
+    // -----------------
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            submitButton.disabled = true;
-            formStatus.textContent = "Sending, please wait...";
-            formStatus.className = "text-blue-500";
+    document.addEventListener('DOMContentLoaded', () => {
+      // Feather Icons
+      feather.replace();
 
-            const file = form.file.files[0];
-            
-            if (file) {
-                // If there's a file, read it as Base64
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => {
-                    const fileData = reader.result.split(',')[1]; // Get only the Base64 part
-                    const payload = {
-                        name: form.name.value,
-                        email: form.email.value,
-                        message: form.message.value,
-                        fileName: file.name,
-                        mimeType: file.type,
-                        fileData: fileData
-                    };
-                    sendData(payload);
-                };
-                reader.onerror = (error) => {
-                    handleError(error);
-                };
-            } else {
-                // If no file, send data directly
-                const payload = {
-                    name: form.name.value,
-                    email: form.email.value,
-                    message: form.message.value,
-                    fileName: "", // Send empty values for file fields
-                    mimeType: "",
-                    fileData: ""
-                };
-                sendData(payload);
-            }
-        });
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
 
-        function sendData(payload) {
-            // Using 'no-cors' mode is a common workaround for Google Apps Script fetch issues.
-            // It prevents the browser from throwing a CORS error due to Google's redirect behavior.
-            // The downside is that we cannot read the response from the server.
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(payload),
-                headers: {
-                    // In no-cors mode, we can't use 'application/json'.
-                    // The browser will likely send it as 'text/plain'.
-                    // The Apps Script will receive the stringified JSON in e.postData.contents,
-                    // and JSON.parse() will still work correctly.
-                    'Content-Type': 'text/plain;charset=utf-8',
-                }
-            })
-            .then(() => {
-                // Since we can't read the response, we assume the request was dispatched successfully.
-                handleSuccess();
-            })
-            .catch(error => {
-                // This will catch genuine network errors, like if the user is offline.
-                handleError(error);
-            });
-        }
+      // Add simple animations on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-fade-in'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('section').forEach(section => { section.classList.add('opacity-0'); observer.observe(section); });
+    });
 
-        function handleSuccess() {
-            formStatus.textContent = "Message sent successfully!";
-            formStatus.className = "text-green-500";
-            form.reset();
-            setTimeout(() => {
-                formStatus.textContent = "";
-            }, 5000);
-            submitButton.disabled = false;
-        }
+    // Contact Form Submission Logic
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('submit-button');
+    const formStatus = document.getElementById('form-status');
 
-        function handleError(error) {
-            console.error('Submission Error:', error);
-            formStatus.textContent = "An error occurred. Please try again.";
-            formStatus.className = "text-red-500";
-            submitButton.disabled = false;
-        }
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitButton.disabled = true;
+      formStatus.textContent = "Sending, please wait...";
+      formStatus.className = "text-blue-500";
 
-        // Add simple animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
+      const file = form.file.files[0];
 
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('opacity-0');
-            observer.observe(section);
-        });
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          const fileData = reader.result.split(',')[1];
+          const payload = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value,
+            fileName: file.name,
+            mimeType: file.type,
+            fileData
+          };
+          sendData(payload);
+        };
+        reader.onerror = (error) => handleError(error);
+      } else {
+        const payload = {
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value,
+          fileName: "",
+          mimeType: "",
+          fileData: ""
+        };
+        sendData(payload);
+      }
+    });
 
-        // Add animation keyframes dynamically
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeInDown {
-                0% { opacity: 0; transform: translateY(-20px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes fadeInUp {
-                0% { opacity: 0; transform: translateY(20px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes fadeIn {
-                0% { opacity: 0; }
-                100% { opacity: 1; }
-            }
-            @keyframes bounceSlow {
-                0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-                50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-            }
-            .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
-            .animate-fade-in-up { animation: fadeInUp 1s ease-out 0.5s forwards; }
-            .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-            .animate-bounce-slow { animation: bounceSlow 2s infinite 1s; }
-            section.opacity-0 { opacity: 0; }
-        `;
-        document.head.appendChild(style);
+    function sendData(payload) {
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+      })
+      .then(() => handleSuccess())
+      .catch(error => handleError(error));
+    }
 
-    </script>
+    function handleSuccess() {
+      formStatus.textContent = "Message sent successfully!";
+      formStatus.className = "text-green-500";
+      form.reset();
+      setTimeout(() => { formStatus.textContent = ""; }, 5000);
+      submitButton.disabled = false;
+    }
+
+    function handleError(error) {
+      console.error('Submission Error:', error);
+      formStatus.textContent = "An error occurred. Please try again.";
+      formStatus.className = "text-red-500";
+      submitButton.disabled = false;
+    }
+  </script>
 </body>
 </html>
