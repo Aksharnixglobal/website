@@ -8,7 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <!-- Inter (site) + Montserrat (logo wordmark) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet"/>
   <script src="https://unpkg.com/feather-icons"></script>
 
   <style>
@@ -51,20 +52,23 @@
 
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Header with custom AksharNix Global logo -->
+  <!-- Header with your GitHub-hosted logo -->
   <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-md">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <!-- ✅ Custom logo image -->
+      <!-- ✅ Logo from repo: /assets/images/aksharnix-logo.png -->
       <a href="#top" class="flex items-center gap-3">
-        <!-- Replace YOUR_LOGO_URL_HERE with your uploaded logo URL (PNG/SVG/WebP) -->
         <img
-          src="YOUR_LOGO_URL_HERE"
+          src="assets/images/aksharnix-logo.png"
           alt="AksharNix Global Logo"
-          class="h-12 w-auto"
+          class="h-10 md:h-12 w-auto"
           loading="eager"
           decoding="async"
         />
-        <span class="sr-only">AksharNix Global</span>
+        <!-- Compact wordmark (hidden on very small screens) -->
+        <span class="hidden xs:flex flex-col leading-tight" style="font-family:'Montserrat', Inter, system-ui">
+          <span class="font-extrabold text-base sm:text-lg md:text-xl text-[#1f56a6]">AksharNix</span>
+          <span class="text-[9px] sm:text-[10px] md:text-xs font-extrabold tracking-[.25em] text-[#0e3977]">GLOBAL</span>
+        </span>
       </a>
 
       <nav class="hidden md:flex space-x-8 text-lg">
