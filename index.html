@@ -1,425 +1,343 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AksharNix Global | Expert IT Consulting & Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AksharNix Global — IT Staffing & Consulting</title>
+  <meta name="description" content="AksharNix Global is a DFW-based IT staffing partner. Contract, contract-to-hire, and direct hire across QA, DevOps, Cloud, Data, Cybersecurity, and more." />
+  <link rel="icon" href="/favicon.png" />
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef6ff', 100: '#d9ecff', 200: '#b8dbff', 300: '#8cc2ff',
+              400: '#5aa2ff', 500: '#2a7dff', 600: '#1d60db', 700: '#174ab0',
+              800: '#153f8f', 900: '#132f66'
+            }
+          },
+          boxShadow: {
+            soft: '0 8px 30px rgba(2, 6, 23, 0.08)'
+          }
         }
-        .hero-bg {
-            background-image: linear-gradient(rgba(20, 30, 48, 0.8), rgba(36, 59, 85, 0.8)), url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-size: cover;
-            background-position: center;
-        }
-        /* Style for the file input */
-        input[type="file"]::file-selector-button {
-            @apply bg-indigo-100 text-indigo-600 font-semibold px-4 py-2 rounded-lg border-0 cursor-pointer hover:bg-indigo-200 transition-colors;
-        }
-        /* New custom CSS for animations */
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        @keyframes bounceSlow {
-            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-        }
-        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
-        .animate-fade-in-up { animation: fadeInUp 1s ease-out 0.5s forwards; }
-        .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-        .animate-bounce-slow { animation: bounceSlow 2s infinite 1s; }
-        section.opacity-0 { opacity: 0; }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-
-    <header class="bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="akshar_nix_logo.png" alt="AksharNix Global Logo" class="h-12">
-            </a>
-            <nav class="hidden md:flex space-x-8 text-lg">
-                <a href="#services" class="text-gray-600 hover:text-indigo-600 transition duration-300">Services</a>
-                <a href="#solutions" class="text-gray-600 hover:text-indigo-600 transition duration-300">Solutions</a>
-                <a href="#reviews" class="text-gray-600 hover:text-indigo-600 transition duration-300">Reviews</a>
-                <a href="#contact" class="bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg">Contact Us</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-feather="menu" class="text-gray-800"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#services" class="block py-2 text-gray-600 hover:text-indigo-600">Services</a>
-            <a href="#solutions" class="block py-2 text-gray-600 hover:text-indigo-600">Solutions</a>
-            <a href="#reviews" class="block py-2 text-gray-600 hover:text-indigo-600">Reviews</a>
-            <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 text-center">Contact Us</a>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero-bg text-white min-h-screen flex items-center justify-center pt-20">
-            <div class="text-center container mx-auto px-6">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-down">
-                    Driving Your Digital Transformation
-                </h1>
-                <p class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
-                    AksharNixGlobal delivers innovative IT consulting and robust solutions to accelerate your business growth and secure your digital assets.
-                </p>
-                <a href="#contact" class="bg-white text-indigo-600 font-bold text-lg px-8 py-4 rounded-full hover:bg-gray-200 transition duration-300 transform hover:scale-105 shadow-2xl inline-block animate-bounce-slow">
-                    Get a Free Consultation
-                </a>
-            </div>
-        </section>
-
-        <section id="services" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-800">Our Core IT Services</h2>
-            <p class="text-lg text-gray-600 mt-2">Tailored technology services to meet your business needs.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Job Placement & C2C -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <i data-feather="users" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Job Placement & C2C</h3>
-                <p class="text-gray-600">Connecting top-tier IT talent with leading companies for contract and full-time roles, including Corp-to-Corp placements.</p>
-            </div>
-            <!-- Managed IT Services -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <i data-feather="server" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Managed IT Services</h3>
-                <p class="text-gray-600">Proactive IT management, 24/7 support, and strategic guidance to ensure your systems run smoothly.</p>
-            </div>
-            <!-- Cybersecurity -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <i data-feather="shield" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Cybersecurity</h3>
-                <p class="text-gray-600">Protect your digital assets with our comprehensive security audits, threat detection, and incident response.</p>
-            </div>
-            <!-- Cloud Solutions -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <i data-feather="cloud" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Cloud Solutions</h3>
-                <p class="text-gray-600">Scalable and secure cloud infrastructure to power your applications and data with AWS, Azure, and Google Cloud.</p>
-            </div>
-            <!-- Data & Analytics -->
-            <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                <div class="bg-indigo-100 text-indigo-600 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <i data-feather="bar-chart-2" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Data & Analytics</h3>
-                <p class="text-gray-600">Turn your data into actionable insights with our business intelligence and data analytics solutions.</p>
-            </div>
-        </div>
+<body class="bg-white text-slate-800">
+  <!-- Top Bar -->
+  <div class="hidden md:block bg-slate-900 text-slate-200 text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <span>📍 DFW-based • Nationwide placements</span>
+        <span class="hidden lg:inline">E-Verify • W‑2 • C2C • 1099 • Background checks</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+12012221122" class="hover:underline">Call: (201) 222‑1122</a>
+        <a href="mailto:admin@aksharnixglobal.com?subject=Inquiry%20from%20Website" class="hover:underline">admin@aksharnixglobal.com</a>
+      </div>
     </div>
-</section>
+  </div>
 
-        <section id="solutions" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-6">
-                <div class="lg:flex lg:items-center lg:space-x-12">
-                    <div class="lg:w-1/2">
-                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Team collaborating on a solution" class="rounded-xl shadow-2xl w-full h-auto object-cover">
-                    </div>
-                    <div class="lg:w-1/2 mt-8 lg:mt-0">
-                        <h2 class="text-4xl font-bold text-gray-800 mb-4">Innovative Solutions for Modern Challenges</h2>
-                        <p class="text-lg text-gray-600 mb-6">We don't just provide services; we build strategic solutions. Our approach combines deep industry knowledge with cutting-edge technology to address your most complex business challenges, ensuring you stay ahead of the curve.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">Custom Software Development:</strong> Tailored applications that align perfectly with your business processes.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">IT Strategy & Consulting:</strong> A roadmap for technology adoption that drives efficiency and innovation.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i data-feather="check-circle" class="text-green-500 w-6 h-6 mr-3 mt-1 flex-shrink-0"></i>
-                                <span><strong class="font-semibold">Digital Workspace Modernization:</strong> Empower your team with collaborative and secure digital tools.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="reviews" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-gray-800">What Our Clients Say</h2>
-                    <p class="text-lg text-gray-600 mt-2">We're proud to partner with amazing companies.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"AksharNixGlobal transformed our IT infrastructure. Their cloud solution was seamless, and the support has been outstanding. We've seen a 40% increase in operational efficiency."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 1" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Sarah Johnson</p>
-                                <p class="text-sm text-gray-500">CEO, Innovate Corp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"The cybersecurity audit they performed was incredibly thorough. We now feel confident that our data is secure. Their team is professional, knowledgeable, and a pleasure to work with."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 2" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Michael Chen</p>
-                                <p class="text-sm text-gray-500">CTO, Data Systems Inc.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
-                        <p class="text-gray-600 italic mb-6">"Their managed IT services are a game-changer. We can finally focus on our core business without worrying about IT issues. Proactive, responsive, and reliable."</p>
-                        <div class="flex items-center">
-                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=160&h=150&dpr=2" alt="Client 3" class="w-12 h-12 rounded-full object-cover mr-4">
-                            <div>
-                                <p class="font-bold">Emily Rodriguez</p>
-                                <p class="text-sm text-gray-500">Operations Director, MarketLeap</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-20 bg-gray-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="lg:flex lg:items-center lg:justify-between">
-                    <div class="lg:w-1/2">
-                        <h2 class="text-4xl font-bold mb-4">Let's Build Your Future, Together.</h2>
-                        <p class="text-lg text-gray-300 mb-8">Ready to elevate your business with cutting-edge IT solutions? Fill out the form, and one of our expert consultants will get in touch with you shortly.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i data-feather="mail" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <a href="mailto:aksharnixglobal@gmail.com or admin@aksharnixglobal.com" class="hover:text-indigo-400">aksharnixglobal@gmail.com or admin@aksharnixglobal.com</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i data-feather="phone" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <span>(201) 222-1122</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i data-feather="map-pin" class="w-6 h-6 mr-3 text-indigo-400"></i>
-                                <span>Aubrey,TX </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:w-1/2 mt-10 lg:mt-0">
-                        <div class="bg-white p-8 rounded-xl shadow-2xl">
-                            <form id="contact-form">
-                                <div class="mb-5">
-                                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800" required></textarea>
-                                </div>
-                                <div class="mb-5">
-                                    <label for="file" class="block text-gray-700 font-semibold mb-2">Attach File (Optional)</label>
-                                    <input type="file" id="file" name="file" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                                </div>
-                                <div id="form-status" class="text-center mb-4 font-medium"></div>
-                                <button type="submit" id="submit-button" class="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg disabled:bg-indigo-400">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-indigo-400"><i data-feather="twitter"></i></a>
-                <a href="#" class="hover:text-indigo-400"><i data-feather="linkedin"></i></a>
-            </div>
-            <p>&copy; 2025 AksharNixGlobal.com. All Rights Reserved.</p>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="/favicon.png" alt="AksharNix logo" class="w-9 h-9 rounded" />
+        <span class="font-extrabold tracking-tight text-slate-900 text-lg">AksharNix Global</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-sm">
+        <a href="#employers" class="hover:text-brand-700">Employers</a>
+        <a href="#seekers" class="hover:text-brand-700">Job Seekers</a>
+        <a href="#roles" class="hover:text-brand-700">Roles We Staff</a>
+        <a href="#process" class="hover:text-brand-700">Process</a>
+        <a href="#contact" class="hover:text-brand-700">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Hire Talent</a>
+        <a href="#seekers" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Submit Resume</a>
+      </div>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-300" aria-label="Open menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#employers" class="py-2">Employers</a>
+        <a href="#seekers" class="py-2">Job Seekers</a>
+        <a href="#roles" class="py-2">Roles We Staff</a>
+        <a href="#process" class="py-2">Process</a>
+        <a href="#contact" class="py-2">Contact</a>
+        <div class="flex gap-2 pt-2">
+          <a href="#contact" class="flex-1 px-4 py-2 rounded-xl border border-slate-300 text-center">Hire Talent</a>
+          <a href="#seekers" class="flex-1 px-4 py-2 rounded-xl bg-brand-600 text-white text-center">Submit Resume</a>
         </div>
-    </footer>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        // --- IMPORTANT ---
-        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzosCo5sAv7t7DNN_lyca55bHzOfWoeoinY72Z_5E4DPBP7g9WDp0H5n4uODm7fI3wz/exec";
-        // -----------------
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white"></div>
+    <div class="relative max-w-7xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          IT Staffing that just <span class="text-brand-700">works</span>.
+        </h1>
+        <p class="mt-5 text-lg text-slate-600 max-w-xl">Contract, contract‑to‑hire, and direct‑hire talent for QA, DevOps, Cloud, Data, Security, and more. Shortlists in 48–72 hours. Local to DFW, placing nationwide.</p>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a href="#contact" class="px-6 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Hire Talent</a>
+          <a href="#seekers" class="px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50">Submit Resume</a>
+        </div>
+        <div class="mt-6 text-sm text-slate-500">E‑Verify • W‑2 • C2C • 1099 • Compliance‑first</div>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl border border-slate-200 p-5 shadow-soft bg-white">
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="p-4 rounded-xl bg-slate-50">
+              <div class="font-semibold text-slate-900">QA & SDET</div>
+              <div class="text-slate-600">Functional • Automation • API</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50">
+              <div class="font-semibold text-slate-900">DevOps & Platform</div>
+              <div class="text-slate-600">K8s • CI/CD • Terraform</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50">
+              <div class="font-semibold text-slate-900">Cloud & Security</div>
+              <div class="text-slate-600">AWS • Azure • GCP • SecOps</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50">
+              <div class="font-semibold text-slate-900">Data & Analytics</div>
+              <div class="text-slate-600">ETL • Warehousing • BI</div>
+            </div>
+          </div>
+          <div class="mt-4 text-xs text-slate-500">Plus: Network • Help Desk • PM/BA • Full‑Stack • Mobile</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Feather Icons
-        feather.replace();
+  <!-- Trust Bar -->
+  <section class="py-6 border-y border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-slate-500 text-sm">
+      <span>Trusted by teams across DFW & US</span>
+      <span class="inline-block w-20 h-[1px] bg-slate-200"></span>
+      <span>Background‑checked candidates</span>
+      <span class="inline-block w-20 h-[1px] bg-slate-200"></span>
+      <span>Interview‑ready shortlists</span>
+    </div>
+  </section>
 
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+  <!-- Roles We Staff -->
+  <section id="roles" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-6 flex-wrap">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Roles we staff</h2>
+        <a href="#contact" class="text-brand-700 hover:underline text-sm">Need a role not listed? Talk to us →</a>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- chips -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">QA / SDET</div><div class="text-slate-600 text-sm">Manual, Automation, API, Performance</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">DevOps / Platform</div><div class="text-slate-600 text-sm">Kubernetes, Docker, CI/CD, Terraform</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Cloud Engineering</div><div class="text-slate-600 text-sm">AWS, Azure, GCP, Networking</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Data Engineering</div><div class="text-slate-600 text-sm">ETL, Warehousing, Spark, DBT</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Business Intelligence</div><div class="text-slate-600 text-sm">Power BI, Tableau, Looker</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Cybersecurity</div><div class="text-slate-600 text-sm">SOC, GRC, IAM, AppSec</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Software Engineering</div><div class="text-slate-600 text-sm">Full‑Stack, Backend, Mobile</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Network & Systems</div><div class="text-slate-600 text-sm">Routing/Switching, Linux/Windows</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Help Desk / Desktop</div><div class="text-slate-600 text-sm">L1–L3 Support, Field Techs</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Product / Project / BA</div><div class="text-slate-600 text-sm">Scrum, SAFe, Delivery</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">QA Leadership</div><div class="text-slate-600 text-sm">Leads, Managers, Directors</div></div>
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white"><div class="font-semibold">Other</div><div class="text-slate-600 text-sm">Tell us what you need</div></div>
+      </div>
+    </div>
+  </section>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  <!-- Employers & Seekers cards -->
+  <section id="employers" class="py-4">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-6">
+      <div class="p-7 rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <h3 class="text-xl font-extrabold">For Employers</h3>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          <li>• Shortlists in <span class="font-semibold">48–72 hours</span> for common roles</li>
+          <li>• Two‑layer vetting: skills screen + reference checks</li>
+          <li>• Contract, Contract‑to‑Hire, or Direct Hire</li>
+          <li>• Compliance‑first (E‑Verify, W‑2, C2C, 1099)</li>
+          <li>• Nationwide reach with DFW roots</li>
+        </ul>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="mailto:admin@aksharnixglobal.com?subject=Hire%20Talent%20Inquiry%20(AksharNix)&body=Tell%20us%20about%20the%20role(s)%3A%0A-%20Title%3A%0A-%20Tech%20stack%3A%0A-%20Location%3A%0A-%20Type%3A%20Contract%20%7C%20C2H%20%7C%20Direct%20Hire%0A-%20Rate%2FSalary%20range%3A%0A-%20Start%20date%3A%0A" class="px-5 py-2.5 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Request Candidates</a>
+          <a href="#process" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50">See Our Process</a>
+        </div>
+      </div>
+      <div id="seekers" class="p-7 rounded-2xl border border-slate-200 bg-white">
+        <h3 class="text-xl font-extrabold">For Job Seekers</h3>
+        <ul class="mt-4 space-y-2 text-slate-700">
+          <li>• Direct roles with enterprise and high‑growth teams</li>
+          <li>• Resume feedback & interview prep</li>
+          <li>• Transparent pay/rate discussions</li>
+          <li>• On‑assignment support</li>
+        </ul>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="mailto:admin@aksharnixglobal.com?subject=Resume%20Submission%20(AksharNix)&body=Attach%20your%20resume%20and%20share%3A%0A-%20Location%3A%0A-%20Work%20authorization%3A%0A-%20Notice%20period%3A%0A-%20Desired%20rate%2Fsalary%3A%0A" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50">Email Your Resume</a>
+          <a href="tel:+12012221122" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800">Call (201) 222‑1122</a>
+        </div>
+        <p class="mt-3 text-xs text-slate-500">AksharNix Global is an equal opportunity employer. We welcome all qualified applicants.</p>
+      </div>
+    </div>
+  </section>
 
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+  <!-- Engagement Models -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Engagement models</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <div class="text-sm font-semibold text-brand-700">Contract</div>
+          <p class="mt-2 text-slate-700">Flexible headcount for projects and peaks. We handle payroll & compliance.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <div class="text-sm font-semibold text-brand-700">Contract‑to‑Hire</div>
+          <p class="mt-2 text-slate-700">Try before you hire. Convert great talent with confidence.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-slate-200 bg-white">
+          <div class="text-sm font-semibold text-brand-700">Direct Hire</div>
+          <p class="mt-2 text-slate-700">Permanent placements for critical roles, with replacement support if needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Contact Form Submission Logic
-        const form = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const formStatus = document.getElementById('form-status');
+  <!-- Process -->
+  <section id="process" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Our 5‑step hiring process</h2>
+      <div class="mt-10 grid md:grid-cols-5 gap-5">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200"><div class="text-xs text-slate-500">Step 1</div><div class="font-semibold mt-1">Intake</div><p class="text-sm mt-1 text-slate-600">Calibrate on must‑haves, culture, timeline, budget.</p></div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200"><div class="text-xs text-slate-500">Step 2</div><div class="font-semibold mt-1">Sourcing</div><p class="text-sm mt-1 text-slate-600">Active network + targeted outreach.</p></div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200"><div class="text-xs text-slate-500">Step 3</div><div class="font-semibold mt-1">Vetting</div><p class="text-sm mt-1 text-slate-600">Skills screen, references, and compliance checks.</p></div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200"><div class="text-xs text-slate-500">Step 4</div><div class="font-semibold mt-1">Interview</div><p class="text-sm mt-1 text-slate-600">Coordinate panels, feedback loop, de‑risk decisions.</p></div>
+        <div class="p-5 rounded-2xl bg-white border border-slate-200"><div class="text-xs text-slate-500">Step 5</div><div class="font-semibold mt-1">Onboard</div><p class="text-sm mt-1 text-slate-600">Offer, paperwork, start; ongoing support.</p></div>
+      </div>
+    </div>
+  </section>
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            submitButton.disabled = true;
-            formStatus.textContent = "Sending, please wait...";
-            formStatus.className = "text-blue-500";
+  <!-- Featured Roles (examples/placeholder) -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-6 flex-wrap">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Sample open roles</h2>
+        <a href="#seekers" class="text-brand-700 hover:underline text-sm">Don’t see your fit? Send your resume →</a>
+      </div>
+      <div class="mt-6 overflow-x-auto border border-slate-200 rounded-2xl">
+        <table class="min-w-full text-sm">
+          <thead class="bg-slate-50 text-slate-600">
+            <tr>
+              <th class="text-left px-4 py-3">Title</th>
+              <th class="text-left px-4 py-3">Location</th>
+              <th class="text-left px-4 py-3">Type</th>
+              <th class="text-left px-4 py-3">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-3 font-medium">Test Engineer (Residential Gateway)</td>
+              <td class="px-4 py-3">Plano, TX • Onsite</td>
+              <td class="px-4 py-3">Contract</td>
+              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20Test%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20rate%2Fsalary.">Email Resume</a></td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-3 font-medium">DevOps Engineer (AWS/Terraform)</td>
+              <td class="px-4 py-3">Plano, TX • Onsite</td>
+              <td class="px-4 py-3">Contract‑to‑Hire</td>
+              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20DevOps%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20rate%2Fsalary.">Email Resume</a></td>
+            </tr>
+            <tr class="border-t border-slate-200">
+              <td class="px-4 py-3 font-medium">Network Engineer (Cisco)</td>
+              <td class="px-4 py-3">Dallas, TX • Hybrid</td>
+              <td class="px-4 py-3">Direct Hire</td>
+              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20Network%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20salary%20expectation.">Email Resume</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 text-xs text-slate-500">These are sample listings. Replace with your live openings or link to a Google Form/Sheets tracker.</p>
+    </div>
+  </section>
 
-            const file = form.file.files[0];
-            
-            if (file) {
-                // If there's a file, read it as Base64
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => {
-                    const fileData = reader.result.split(',')[1]; // Get only the Base64 part
-                    const payload = {
-                        name: form.name.value,
-                        email: form.email.value,
-                        message: form.message.value,
-                        fileName: file.name,
-                        mimeType: file.type,
-                        fileData: fileData
-                    };
-                    sendData(payload);
-                };
-                reader.onerror = (error) => {
-                    handleError(error);
-                };
-            } else {
-                // If no file, send data directly
-                const payload = {
-                    name: form.name.value,
-                    email: form.email.value,
-                    message: form.message.value,
-                    fileName: "", // Send empty values for file fields
-                    mimeType: "",
-                    fileData: ""
-                };
-                sendData(payload);
-            }
-        });
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold">Talk to us</h2>
+        <p class="mt-3 text-slate-700">Describe your hiring need or send your resume. We’ll reply quickly.</p>
+        <div class="mt-6 space-y-3 text-slate-700">
+          <div>📞 <a class="hover:underline" href="tel:+12012221122">(201) 222‑1122</a></div>
+          <div>✉️ <a class="hover:underline" href="mailto:admin@aksharnixglobal.com">admin@aksharnixglobal.com</a></div>
+          <div>📍 Aubrey, TX • Serving USA</div>
+        </div>
+      </div>
+      <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-soft">
+        <h3 class="text-lg font-bold">Quick inquiry</h3>
+        <p class="text-sm text-slate-600 mt-1">This button opens your email with a pre‑filled template.</p>
+        <a href="mailto:admin@aksharnixglobal.com?subject=Staffing%20Inquiry%20from%20Website&body=Company%20name%3A%0ARole(s)%3A%0ALocation%3A%0AType%3A%20Contract%7CContract-to-Hire%7CDirect%20Hire%0ATimeline%3A%0ABudget%20range%3A%0A" class="mt-4 inline-block px-5 py-3 rounded-xl bg-brand-600 text-white hover:bg-brand-700">Email Us Now</a>
+        <p class="mt-3 text-xs text-slate-500">Prefer a form? Connect Formspree/Netlify later for on‑site submissions.</p>
+      </div>
+    </div>
+  </section>
 
-        function sendData(payload) {
-            // Using 'no-cors' mode is a common workaround for Google Apps Script fetch issues.
-            // It prevents the browser from throwing a CORS error due to Google's redirect behavior.
-            // The downside is that we cannot read the response from the server.
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(payload),
-                headers: {
-                    // In no-cors mode, we can't use 'application/json'.
-                    // The browser will likely send it as 'text/plain'.
-                    // The Apps Script will receive the stringified JSON in e.postData.contents,
-                    // and JSON.parse() will still work correctly.
-                    'Content-Type': 'text/plain;charset=utf-8',
-                }
-            })
-            .then(() => {
-                // Since we can't read the response, we assume the request was dispatched successfully.
-                handleSuccess();
-            })
-            .catch(error => {
-                // This will catch genuine network errors, like if the user is offline.
-                handleError(error);
-            });
-        }
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/favicon.png" class="w-8 h-8 rounded" alt="AksharNix logo"/>
+          <span class="font-extrabold">AksharNix Global</span>
+        </div>
+        <p class="text-sm text-slate-600 mt-2 max-w-xl">AksharNix Global is an IT staffing and consulting partner. We connect exceptional talent with growing teams.</p>
+        <p class="text-xs text-slate-500 mt-2">EEO Statement: We consider all qualified applicants without regard to race, color, religion, sex, national origin, age, disability, or genetics.</p>
+      </div>
+      <div class="text-sm text-slate-600">
+        <a class="hover:underline" href="#">Privacy Policy</a>
+        <span class="mx-2">•</span>
+        <a class="hover:underline" href="#">Terms of Use</a>
+        <div class="mt-2 text-xs text-slate-500">© <span id="year"></span> AksharNix Global. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
 
-        function handleSuccess() {
-            formStatus.textContent = "Message sent successfully!";
-            formStatus.className = "text-green-500";
-            form.reset();
-            setTimeout(() => {
-                formStatus.textContent = "";
-            }, 5000);
-            submitButton.disabled = false;
-        }
+  <!-- JSON-LD Schema: EmploymentAgency -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EmploymentAgency",
+    "name": "AksharNix Global",
+    "url": "https://aksharnixglobal.com",
+    "logo": "https://aksharnixglobal.com/favicon.png",
+    "telephone": "+1-201-222-1122",
+    "email": "admin@aksharnixglobal.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aubrey",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": "US"
+  }
+  </script>
 
-        function handleError(error) {
-            console.error('Submission Error:', error);
-            formStatus.textContent = "An error occurred. Please try again.";
-            formStatus.className = "text-red-500";
-            submitButton.disabled = false;
-        }
-
-        // Add simple animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('opacity-0');
-            observer.observe(section);
-        });
-
-        // Add animation keyframes dynamically
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes fadeInDown {
-                0% { opacity: 0; transform: translateY(-20px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes fadeInUp {
-                0% { opacity: 0; transform: translateY(20px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes fadeIn {
-                0% { opacity: 0; }
-                100% { opacity: 1; }
-            }
-            @keyframes bounceSlow {
-                0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-                50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-            }
-            .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
-            .animate-fade-in-up { animation: fadeInUp 1s ease-out 0.5s forwards; }
-            .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
-            .animate-bounce-slow { animation: bounceSlow 2s infinite 1s; }
-            section.opacity-0 { opacity: 0; }
-        `;
-        document.head.appendChild(style);
-
-    </script>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
