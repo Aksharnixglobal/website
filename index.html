@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AksharNix Global — IT Staffing & Consulting</title>
   <meta name="description" content="AksharNix Global is a DFW-based IT staffing partner. Contract, contract-to-hire, and direct hire across QA, DevOps, Cloud, Data, Cybersecurity, and more." />
+  <meta property="og:image" content="https://aksharnixglobal.com/akshar_nix_logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
   <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,9 +17,16 @@
         extend: {
           colors: {
             brand: {
-              50: '#eef6ff', 100: '#d9ecff', 200: '#b8dbff', 300: '#8cc2ff',
-              400: '#5aa2ff', 500: '#2a7dff', 600: '#1d60db', 700: '#174ab0',
-              800: '#153f8f', 900: '#132f66'
+              50: '#eaf3f9',
+              100: '#d6e6f3',
+              200: '#a7c6da',
+              300: '#86b2cd',
+              400: '#6192b9',
+              500: '#3f7fb0',
+              600: '#1682b8',
+              700: '#0f5f97',
+              800: '#074687',
+              900: '#063c73'
             }
           },
           boxShadow: {
@@ -26,6 +36,7 @@
       }
     }
   </script>
+  <script>window.AKX_LOGO_URL='/akshar_nix_logo.png?v=1';</script>
   <style>
     /* Smooth scroll */
     html{scroll-behavior:smooth}
@@ -33,7 +44,7 @@
 </head>
 <body class="bg-white text-slate-800">
   <!-- Top Bar -->
-  <div class="hidden md:block bg-slate-900 text-slate-200 text-sm">
+  <div class="hidden md:block bg-brand-900 text-white text-sm">
     <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <span>📍 DFW-based • Nationwide placements</span>
@@ -50,7 +61,8 @@
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <img src="/favicon.png" alt="AksharNix logo" class="w-9 h-9 rounded" />
+        <img id="brandLogo" src="" alt="AksharNix Global logo" class="h-9 w-auto hidden" />
+        <div id="brandFallback" class="hidden h-9 w-9 bg-slate-900 text-white grid place-items-center text-xs font-bold">AN</div>
         <span class="font-extrabold tracking-tight text-slate-900 text-lg">AksharNix Global</span>
       </a>
       <nav class="hidden md:flex items-center gap-7 text-sm">
@@ -296,7 +308,8 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
       <div>
         <div class="flex items-center gap-3">
-          <img src="/favicon.png" class="w-8 h-8 rounded" alt="AksharNix logo"/>
+          <img id="brandLogoFooter" src="" class="h-8 w-auto hidden" alt="AksharNix Global logo" />
+          <div id="brandFallbackFooter" class="hidden h-8 w-8 bg-slate-900 text-white grid place-items-center text-[10px] font-bold">AN</div>
           <span class="font-extrabold">AksharNix Global</span>
         </div>
         <p class="text-sm text-slate-600 mt-2 max-w-xl">AksharNix Global is an IT staffing and consulting partner. We connect exceptional talent with growing teams.</p>
@@ -318,7 +331,7 @@
     "@type": "EmploymentAgency",
     "name": "AksharNix Global",
     "url": "https://aksharnixglobal.com",
-    "logo": "https://aksharnixglobal.com/favicon.png",
+    "logo": "https://aksharnixglobal.com/akshar_nix_logo.png",
     "telephone": "+1-201-222-1122",
     "email": "admin@aksharnixglobal.com",
     "address": {
@@ -339,5 +352,6 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+<script>(function(){const c=['/assets/aksharnix-global.svg','/assets/aksharnix-global.png','/aksharnix-global.svg','/aksharnix-global.png','/logo-aksharnix.svg','/logo-aksharnix.png','/logo.svg','/logo.png','/favicon.png'];const o=window.AKX_LOGO_URL||document.documentElement.getAttribute('data-logo-url');const list=o?[o,...c]:c;function pick(arr,cb){if(!arr.length){cb(null);return;}const u=arr.shift();const i=new Image();i.onload=()=>cb(u);i.onerror=()=>pick(arr,cb);i.src=u;}pick([...list],function(url){const h=document.getElementById('brandLogo');const f=document.getElementById('brandLogoFooter');if(url){[h,f].forEach(el=>{if(el){el.src=url;el.classList.remove('hidden');}});}else{document.getElementById('brandFallback')?.classList.remove('hidden');document.getElementById('brandFallbackFooter')?.classList.remove('hidden');}})})();</script>
 </body>
 </html>
