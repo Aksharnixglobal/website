@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>(function(){try{const t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();</script>
   <title>AksharNix Global — IT Staffing & Consulting</title>
   <meta name="description" content="AksharNix Global is a DFW-based IT staffing partner. Contract, contract-to-hire, and direct hire across QA, DevOps, Cloud, Data, Cybersecurity, and more." />
   <meta property="og:image" content="https://aksharnixglobal.com/akshar_nix_logo.png" />
@@ -15,6 +16,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -32,7 +34,7 @@
             }
           },
           boxShadow: {
-            soft: '0 8px 30px rgba(2, 6, 23, 0.08)'
+            soft: '0 8px 30px rgba(2, 6, 23, 0.10)'
           }
         }
       }
@@ -50,9 +52,13 @@
     .lift:hover{transform:translateY(-2px)}
     .reveal{opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease}
     .reveal.show{opacity:1;transform:none}
+    /* marquee */
+    .marquee{display:flex;gap:2.5rem;white-space:nowrap;animation:scroll 30s linear infinite}
+    .marquee:hover{animation-play-state:paused}
+    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   </style>
 </head>
-<body class="bg-white text-slate-800">
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100">
   <!-- Top Bar -->
   <div class="hidden md:block bg-brand-900 text-white text-sm">
     <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
@@ -84,8 +90,9 @@
         <a href="#contact" class="hover:text-brand-700">Contact</a>
       </nav>
       <div class="hidden md:flex items-center gap-3">
-        <a href="#contact" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-gradient-to-b from-white via-brand-50/40 to-white">Hire Talent</a>
-        <a href="#seekers" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 text-white shadow-lg shadow-soft">Submit Resume</a>
+        <button id="themeToggle" title="Toggle theme" class="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-300/70 hover:bg-slate-50 dark:border-white/20 dark:hover:bg-white/10">🌙</button>
+        <a href="#contact" class="px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Hire Talent</a>
+        <a href="#seekers" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 text-white shadow-soft">Submit Resume</a>
       </div>
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-300" aria-label="Open menu">☰</button>
     </div>
@@ -108,7 +115,7 @@
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <!-- soft gradient + animated blobs -->
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950"></div>
     <div class="pointer-events-none absolute -top-20 -right-24 w-[38rem] h-[38rem] rounded-full bg-gradient-to-tr from-brand-200 to-brand-400 blur-3xl opacity-40"></div>
     <div class="pointer-events-none absolute -bottom-24 -left-24 w-[30rem] h-[30rem] rounded-full bg-gradient-to-tr from-brand-100 to-brand-300 blur-3xl opacity-50"></div>
 
@@ -153,6 +160,33 @@
       <span>Background‑checked candidates</span>
       <span class="inline-block w-20 h-[1px] bg-slate-200"></span>
       <span>Interview‑ready shortlists</span>
+    </div>
+  </section>
+
+  <!-- Logo Marquee (optional) -->
+  <section class="py-8 border-y border-white/30 bg-white/60 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="overflow-hidden">
+        <div class="marquee text-slate-500">
+          <span class="text-sm">Trusted by teams in DFW</span>
+          <span>•</span>
+          <span class="text-sm">Healthcare</span>
+          <span>•</span>
+          <span class="text-sm">Telecom</span>
+          <span>•</span>
+          <span class="text-sm">Retail</span>
+          <span>•</span>
+          <span class="text-sm">Fintech</span>
+          <span>•</span>
+          <span class="text-sm">Manufacturing</span>
+          <span>•</span>
+          <span class="text-sm">SaaS</span>
+          <span>•</span>
+          <span class="text-sm">Public Sector</span>
+          <span>•</span>
+          <span class="text-sm">and more</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -407,6 +441,21 @@
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
     }, {threshold: 0.12});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Theme toggle
+    const tbtn = document.getElementById('themeToggle');
+    function setTheme(next){
+      const root = document.documentElement;
+      if(next==='dark'){ root.classList.add('dark'); localStorage.setItem('theme','dark'); tbtn && (tbtn.textContent='☀️'); }
+      else { root.classList.remove('dark'); localStorage.setItem('theme','light'); tbtn && (tbtn.textContent='🌙'); }
+    }
+    if(tbtn){
+      const start = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      setTheme(start);
+      tbtn.addEventListener('click', ()=>{
+        const isDark = document.documentElement.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
+      });
+    }
   </script>
 <script>(function(){const c=['/assets/aksharnix-global.svg','/assets/aksharnix-global.png','/aksharnix-global.svg','/aksharnix-global.png','/logo-aksharnix.svg','/logo-aksharnix.png','/logo.svg','/logo.png','/favicon.png'];const o=window.AKX_LOGO_URL||document.documentElement.getAttribute('data-logo-url');const list=o?[o,...c]:c;function pick(arr,cb){if(!arr.length){cb(null);return;}const u=arr.shift();const i=new Image();i.onload=()=>cb(u);i.onerror=()=>pick(arr,cb);i.src=u;}pick([...list],function(url){const h=document.getElementById('brandLogo');const f=document.getElementById('brandLogoFooter');if(url){[h,f].forEach(el=>{if(el){el.src=url;el.classList.remove('hidden');}});}else{document.getElementById('brandFallback')?.classList.remove('hidden');document.getElementById('brandFallbackFooter')?.classList.remove('hidden');}})})();</script>
 </body>
