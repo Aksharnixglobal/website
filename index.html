@@ -10,9 +10,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="/favicon.png" />
   <link rel="icon" type="image/png" href="/logo.png" />
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS (CDN) -->
+  <!-- Fonts --><!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,7 +43,7 @@
     /* Smooth scroll */
     html{scroll-behavior:smooth}
     /* Modern brand font */
-    body{font-family:'Manrope',ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';}
+    body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple Color Emoji','Segoe UI Emoji';}
     /* Fancy helpers */
     .glass{background:rgba(255,255,255,.65);backdrop-filter:saturate(140%) blur(10px);border:1px solid rgba(255,255,255,.35)}
     .lift{transition:transform .2s ease, box-shadow .2s ease}
@@ -56,6 +54,10 @@
     .marquee{display:flex;gap:2.5rem;white-space:nowrap;animation:scroll 30s linear infinite}
     .marquee:hover{animation-play-state:paused}
     @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  </style>
+  <style>
+    @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .spin-slow{animation:spin-slow 40s linear infinite}
   </style>
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100">
@@ -140,6 +142,37 @@
       </div>
       <div class="relative reveal">
         <div class="rounded-2xl glass p-5 shadow-soft">
+          <!-- Animated Globe visual -->
+          <div class="relative aspect-square max-w-md mx-auto mb-5">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-200/60 to-brand-500/30 blur-2xl"></div>
+            <svg viewBox="0 0 200 200" class="relative z-10 w-full h-full text-brand-700/70">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="currentColor" stop-opacity=".7"/>
+                  <stop offset="100%" stop-color="currentColor" stop-opacity=".3"/>
+                </linearGradient>
+              </defs>
+              <g class="spin-slow" transform="translate(100,100)">
+                <circle r="98" fill="none" stroke="url(#g1)" stroke-width="1.5"/>
+                <!-- longitudes -->
+                <g>
+                  <ellipse rx="90" ry="90" fill="none" stroke="currentColor" stroke-opacity=".2"/>
+                  <g fill="none" stroke="currentColor" stroke-opacity=".25">
+                    <ellipse rx="80" ry="40"/>
+                    <ellipse rx="60" ry="30"/>
+                    <ellipse rx="40" ry="20"/>
+                  </g>
+                </g>
+                <!-- latitudes -->
+                <g fill="none" stroke="currentColor" stroke-opacity=".2">
+                  <circle r="80"/>
+                  <circle r="60"/>
+                  <circle r="40"/>
+                  <circle r="20"/>
+                </g>
+              </g>
+            </svg>
+          </div>
           <div class="grid grid-cols-2 gap-4 text-sm">
             <div class="p-4 rounded-xl bg-white/60"><div class="font-semibold text-slate-900">QA & SDET</div><div class="text-slate-600">Functional • Automation • API</div></div>
             <div class="p-4 rounded-xl bg-white/60"><div class="font-semibold text-slate-900">DevOps & Platform</div><div class="text-slate-600">K8s • CI/CD • Terraform</div></div>
@@ -284,73 +317,69 @@
     </div>
   </section>
 
-  <!-- Featured Roles (examples/placeholder) -->
-  <section class="py-16">
+  <!-- Jobs Board -->
+  <section id="jobs" class="py-16">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-end justify-between gap-6 flex-wrap">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Sample open roles</h2>
+        <h2 class="text-2xl md:text-3xl font-extrabold">Open roles</h2>
         <a href="#seekers" class="text-brand-700 hover:underline text-sm">Don’t see your fit? Send your resume →</a>
       </div>
-      <div class="mt-6 overflow-x-auto border border-slate-200 rounded-2xl">
-        <table class="min-w-full text-sm divide-y divide-white/30">
-          <thead class="bg-gradient-to-b from-white via-brand-50/40 to-white text-slate-600">
-            <tr>
-              <th class="text-left px-4 py-3">Title</th>
-              <th class="text-left px-4 py-3">Location</th>
-              <th class="text-left px-4 py-3">Type</th>
-              <th class="text-left px-4 py-3">Apply</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-3 font-medium">Test Engineer (Residential Gateway)</td>
-              <td class="px-4 py-3">Plano, TX • Onsite</td>
-              <td class="px-4 py-3">Contract</td>
-              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20Test%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20rate%2Fsalary.">Email Resume</a></td>
-            </tr>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-3 font-medium">DevOps Engineer (AWS/Terraform)</td>
-              <td class="px-4 py-3">Plano, TX • Onsite</td>
-              <td class="px-4 py-3">Contract‑to‑Hire</td>
-              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20DevOps%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20rate%2Fsalary.">Email Resume</a></td>
-            </tr>
-            <tr class="border-t border-slate-200">
-              <td class="px-4 py-3 font-medium">Network Engineer (Cisco)</td>
-              <td class="px-4 py-3">Dallas, TX • Hybrid</td>
-              <td class="px-4 py-3">Direct Hire</td>
-              <td class="px-4 py-3"><a class="text-brand-700 hover:underline" href="mailto:admin@aksharnixglobal.com?subject=Application%3A%20Network%20Engineer&body=Attach%20resume%20and%20share%20your%20notice%20period%20and%20salary%20expectation.">Email Resume</a></td>
-            </tr>
-          </tbody>
-        </table>
+
+      <!-- Search + Filters -->
+      <div class="mt-6 grid md:grid-cols-[1fr_auto] gap-4 items-center">
+        <input id="jobSearch" class="px-4 py-3 rounded-xl border border-white/30 bg-white/70 backdrop-blur w-full" placeholder="Search title, location, skill…" />
+        <div id="jobFilters" class="flex flex-wrap gap-2">
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="QA">QA</button>
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="DevOps">DevOps</button>
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="Cloud">Cloud</button>
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="Network">Network</button>
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="Security">Security</button>
+          <button class="px-3 py-1.5 rounded-full text-sm border border-white/30 bg-white/70 backdrop-blur" data-tag="Data">Data</button>
+        </div>
       </div>
-      <p class="mt-3 text-xs text-slate-500">These are sample listings. Replace with your live openings or link to a Google Form/Sheets tracker.</p>
+
+      <!-- Job Cards -->
+      <div id="jobList" class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <div id="jobEmpty" class="hidden mt-6 text-sm text-slate-500">No roles match your filters.</div>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="why-us" class="py-16 bg-white">
+  <section id="why-us" class="py-16 bg-white/70 backdrop-blur">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-extrabold">Why employers choose AksharNix</h2>
       <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border border-white/30 bg-white/70 backdrop-blur lift shadow-soft">
-          <h3 class="font-semibold">Fast, qualified shortlists</h3>
-          <p class="text-slate-700 mt-1 text-sm">We deliver interview-ready candidates for common roles in 48–72 hours.</p>
+        <div class="p-[1px] rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500">
+          <div class="p-6 rounded-[1rem] bg-white/90 dark:bg-slate-900/60 backdrop-blur lift">
+            <div class="text-brand-700 text-xl">⚡</div>
+            <h3 class="font-semibold mt-1">Fast, qualified shortlists</h3>
+            <p class="text-slate-700 mt-1 text-sm">Interview-ready candidates for common roles in 48–72 hours.</p>
+          </div>
         </div>
-        <div class="p-6 rounded-2xl border border-white/30 bg-white/70 backdrop-blur lift shadow-soft">
-          <h3 class="font-semibold">Compliance-first hiring</h3>
-          <p class="text-slate-700 mt-1 text-sm">E‑Verify, W‑2, C2C, 1099, and background checks—handled.</p>
+        <div class="p-[1px] rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500">
+          <div class="p-6 rounded-[1rem] bg-white/90 dark:bg-slate-900/60 backdrop-blur lift">
+            <div class="text-brand-700 text-xl">🛡️</div>
+            <h3 class="font-semibold mt-1">Compliance-first hiring</h3>
+            <p class="text-slate-700 mt-1 text-sm">E‑Verify, W‑2, C2C, 1099, and background checks—handled.</p>
+          </div>
         </div>
-        <div class="p-6 rounded-2xl border border-white/30 bg-white/70 backdrop-blur lift shadow-soft">
-          <h3 class="font-semibold">Deep IT focus</h3>
-          <p class="text-slate-700 mt-1 text-sm">QA/SDET, DevOps, Cloud, Data, Security, Network, and more.</p>
+        <div class="p-[1px] rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500">
+          <div class="p-6 rounded-[1rem] bg-white/90 dark:bg-slate-900/60 backdrop-blur lift">
+            <div class="text-brand-700 text-xl">🧠</div>
+            <h3 class="font-semibold mt-1">Deep IT focus</h3>
+            <p class="text-slate-700 mt-1 text-sm">QA/SDET, DevOps, Cloud, Data, Security, Network, and more.</p>
+          </div>
         </div>
-        <div class="p-6 rounded-2xl border border-white/30 bg-white/70 backdrop-blur lift shadow-soft">
-          <h3 class="font-semibold">Transparent partnership</h3>
-          <p class="text-slate-700 mt-1 text-sm">Clear rates, fast communication, and on-assignment support.</p>
+        <div class="p-[1px] rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500">
+          <div class="p-6 rounded-[1rem] bg-white/90 dark:bg-slate-900/60 backdrop-blur lift">
+            <div class="text-brand-700 text-xl">🤝</div>
+            <h3 class="font-semibold mt-1">Transparent partnership</h3>
+            <p class="text-slate-700 mt-1 text-sm">Clear rates, fast communication, and on‑assignment support.</p>
+          </div>
         </div>
       </div>
       <div class="mt-6">
-        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 text-white shadow-lg">Request client references →</a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 shadow">Request client references →</a>
       </div>
     </div>
   </section>
@@ -458,5 +487,61 @@
     }
   </script>
 <script>(function(){const c=['/assets/aksharnix-global.svg','/assets/aksharnix-global.png','/aksharnix-global.svg','/aksharnix-global.png','/logo-aksharnix.svg','/logo-aksharnix.png','/logo.svg','/logo.png','/favicon.png'];const o=window.AKX_LOGO_URL||document.documentElement.getAttribute('data-logo-url');const list=o?[o,...c]:c;function pick(arr,cb){if(!arr.length){cb(null);return;}const u=arr.shift();const i=new Image();i.onload=()=>cb(u);i.onerror=()=>pick(arr,cb);i.src=u;}pick([...list],function(url){const h=document.getElementById('brandLogo');const f=document.getElementById('brandLogoFooter');if(url){[h,f].forEach(el=>{if(el){el.src=url;el.classList.remove('hidden');}});}else{document.getElementById('brandFallback')?.classList.remove('hidden');document.getElementById('brandFallbackFooter')?.classList.remove('hidden');}})})();</script>
+  <!-- Floating contact dock (desktop) -->
+  <div class="hidden md:flex fixed right-4 bottom-24 z-40 flex-col gap-2">
+    <a href="tel:+12012221122" class="px-4 py-2 rounded-xl text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 shadow lift">Call</a>
+    <a href="mailto:admin@aksharnixglobal.com?subject=Hire%20Talent%20Inquiry" class="px-4 py-2 rounded-xl text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 shadow lift">Email</a>
+  </div>
+
+  <!-- Jobs board script -->
+  <script>
+    (function(){
+      const JOBS = [
+        {title:'Test Engineer (Residential Gateway)',loc:'Plano, TX • Onsite',type:'Contract',tags:['QA','Network'],apply:"mailto:admin@aksharnixglobal.com?subject=Application%3A%20Test%20Engineer&body=Attach%20resume%20and%20share%20notice%20period%20and%20rate."},
+        {title:'DevOps Engineer (AWS/Terraform)',loc:'Plano, TX • Onsite',type:'Contract-to-Hire',tags:['DevOps','Cloud'],apply:"mailto:admin@aksharnixglobal.com?subject=Application%3A%20DevOps%20Engineer&body=Attach%20resume%20and%20share%20notice%20period%20and%20rate."},
+        {title:'Network Engineer (Cisco)',loc:'Dallas, TX • Hybrid',type:'Direct Hire',tags:['Network','Security'],apply:"mailto:admin@aksharnixglobal.com?subject=Application%3A%20Network%20Engineer&body=Attach%20resume%20and%20share%20notice%20period%20and%20salary."}
+      ];
+      const list = document.getElementById('jobList');
+      const empty = document.getElementById('jobEmpty');
+      const search = document.getElementById('jobSearch');
+      const filters = document.getElementById('jobFilters');
+      const active = new Set();
+      function render(){
+        const q = (search?.value||'').toLowerCase();
+        const filtered = JOBS.filter(j=>{
+          const text = (j.title+' '+j.loc+' '+j.type+' '+j.tags.join(' ')).toLowerCase();
+          const matchesText = !q || text.includes(q);
+          const matchesTags = !active.size || j.tags.some(t=>active.has(t));
+          return matchesText && matchesTags;
+        });
+        list.innerHTML = filtered.map(j=>`
+          <div class="p-[1px] rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500">
+            <div class="p-5 rounded-[1rem] bg-white/90 dark:bg-slate-900/60 backdrop-blur lift h-full flex flex-col">
+              <div class="text-sm text-slate-500">${j.type}</div>
+              <div class="mt-1 font-semibold text-slate-900 dark:text-white">${j.title}</div>
+              <div class="text-sm text-slate-600">${j.loc}</div>
+              <div class="mt-3 flex flex-wrap gap-2">${j.tags.map(t=>`<span class=\"px-2 py-1 rounded-full text-xs border border-white/30 bg-white/70 backdrop-blur\">${t}</span>`).join('')}</div>
+              <div class="mt-4 pt-2">
+                <a href="${j.apply}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 shadow">Email Resume</a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        empty.classList.toggle('hidden', filtered.length>0);
+      }
+      if(filters){
+        filters.addEventListener('click', (e)=>{
+          const b = e.target.closest('button[data-tag]');
+          if(!b) return;
+          const tag = b.getAttribute('data-tag');
+          if(active.has(tag)){ active.delete(tag); b.classList.remove('ring-2','ring-brand-600'); }
+          else { active.add(tag); b.classList.add('ring-2','ring-brand-600'); }
+          render();
+        });
+      }
+      search?.addEventListener('input', render);
+      render();
+    })();
+  </script>
 </body>
 </html>
